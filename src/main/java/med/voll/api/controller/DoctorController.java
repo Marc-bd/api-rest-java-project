@@ -5,14 +5,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import med.voll.api.doctor.DoctorSchema;
+import med.voll.api.doctor.DoctorDTO;
 
 @RestController
 @RequestMapping("/doctor")
 public class DoctorController {
 
   @PostMapping
-  public void register(@RequestBody DoctorSchema json) {
+  public void register(@RequestBody DoctorDTO json) {
     System.out.println(json);
   }
 
