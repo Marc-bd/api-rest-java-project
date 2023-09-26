@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AddressSchema {
+
   private String street;
   private String neighborhood;
   private String zipCode;
@@ -17,4 +18,14 @@ public class AddressSchema {
   private String state;
   private String number;
   private String complement;
+
+  public AddressSchema(AddressDTO address) {
+    this.street = address.street();
+    this.neighborhood = address.neighborhood();
+    this.zipCode = address.zipCode();
+    this.city = address.city();
+    this.state = address.state();
+    this.number = address.number();
+    this.complement = address.complement();
+  }
 }

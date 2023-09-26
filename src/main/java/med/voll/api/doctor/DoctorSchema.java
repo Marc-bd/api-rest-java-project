@@ -13,7 +13,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import med.voll.api.address.AddressDTO;
+import med.voll.api.address.AddressSchema;
 
 @Table(name = "doctor")
 @Entity(name = "Doctor")
@@ -28,11 +28,22 @@ public class DoctorSchema {
   private Long id;
   private String name;
   private String email;
+  private String phone;
   private String crm;
 
   @Enumerated(EnumType.STRING)
   private Specialty especialty;
 
   @Embedded
-  private AddressDTO address;
+  private AddressSchema address;
+
+  public DoctorSchema(DoctorDTO data) {
+    this.name = data.name();
+    this.email = data.email();
+    this.phone = data.phone();
+    this.crm = data.crm();
+    this.especialty = data.specialty();
+    this.address = new AddressSchema(data.address());
+  }
+
 }
