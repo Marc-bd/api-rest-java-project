@@ -1,7 +1,5 @@
 package med.voll.api.doctor;
 
-import org.springframework.context.annotation.Bean;
-
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -16,22 +14,22 @@ import med.voll.api.address.AddressDTO;
 
 public record DoctorDTO(
 
-        @NotBlank
+                @NotBlank
 
-        String name,
+                String name,
 
-        @NotBlank @Email
+                @NotBlank @Email
 
-        String email,
+                String email,
 
-        @NotBlank String phone,
+                @NotBlank String phone,
 
-        @NotBlank @Pattern(regexp = "\\d{4,6}")
+                @NotBlank @Pattern(regexp = "\\d{4,6}")
 
-        String crm,
+                String crm,
 
-        @NotNull Specialty specialty,
+                @NotNull Specialty specialty,
 
-        @NotNull @Valid AddressDTO address) {
+                @NotNull @Valid AddressDTO address) {
 
 }
