@@ -1,5 +1,7 @@
 package med.voll.api.doctor;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 /*
  * Permite a interação com o banco de dados de forma simples e eficiente, sem a necessidade de escrever consultas SQL manualmente
@@ -11,6 +13,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * 
  */
 
+import med.voll.api.doctor.dto.ListDoctorDTO;
+
 public interface DoctorRepository extends JpaRepository<DoctorSchema, Long> {
+
+  Page<DoctorSchema> findAllByIsActiveTrue(Pageable pagination);
 
 }

@@ -11,6 +11,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import med.voll.api.address.AddressSchema;
+import med.voll.api.patient.dtos.PatientDTO;
+import med.voll.api.patient.dtos.UpdatePatientDTO;
 
 /*
  * Onde está o schema do paciente, possui o construtor para instanciar o objeto e as propriedades do lamboke jakarta para validação dos campos recebidos;
@@ -58,6 +60,25 @@ public class PatientSchema {
     this.phone = data.phone();
     this.healthInsurance = data.healthInsurance();
     this.address = new AddressSchema(data.address());
+  }
+
+  public void update(UpdatePatientDTO data) {
+    if (data.name() != null) {
+      this.name = data.name();
+    }
+    if (data.email() != null) {
+      this.email = data.email();
+    }
+    if (data.phone() != null) {
+      this.phone = data.phone();
+    }
+    if (data.healthInsurance() != null) {
+      this.healthInsurance = data.healthInsurance();
+    }
+    if (data.address() != null) {
+      this.address.update(data.address());
+    }
+
   }
 
 }
